@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      http-equiv="Content-Type"
+      content="text/html; charset=UTF-8"
+    />
+    <title>KAS Browser Tests</title>
+
+    <!-- Include Underscore -->
+    <script src="node_modules/underscore/underscore.js"></script>
+
+    <!-- Include KAS -->
+    <script src="src/parser.js"></script>
+    <script src="src/unitparser.js"></script>
+    <script src="src/nodes.js"></script>
+    <script src="src/compare.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      (function () {
+
+        // Generate LaTex here: https://codesandbox.io/s/math-quill-2lysl
+        var exp1 = KAS.parse('\\frac{3}{6}\\left(x-1\\right)').expr;
+        var exp2 = KAS.parse('\\frac{1}{2}x-\\frac{1}{2}').expr;
+
+        console.log('Expression equal', KAS.compare(exp1, exp2).equal);
+      })();
+    </script>
+  </body>
+</html>
